@@ -1,6 +1,7 @@
 //
 // Created by lucas on 02/06/2022.
 //
+#pragma once
 
 #ifndef B_BALL_GAME_HPP
 #define B_BALL_GAME_HPP

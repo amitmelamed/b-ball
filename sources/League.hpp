@@ -1,31 +1,31 @@
 //
 // Created by lucas on 29/05/2022.
 //
-
+#pragma once
 #ifndef B_BALL_LEAUGE_HPP
 #define B_BALL_LEAUGE_HPP
-#include "Game.hpp"
 #include <vector>
 #include <string.h>
-#include "Round.hpp"
-#include "Team.hpp"
 
-using namespace std;
+#include "Schedule.hpp"
+
 /**
  * The league class represent a league of 20 teams.
  */
  namespace ball{
-     class Round;
      class League{
-         vector<Team*> teams;
-         vector<Round*> schedule;
+         std::vector<Team*> teams;
+         Schedule schedule;
      public:
          //-----Constructors-----
          League();
-         League(vector<Team*> teams);
+         League(std::vector<Team*>);
+         ~League();
          //-----Getters-----
-         vector<Team*> getTeams();
-         vector<Round*> getSchedule();
+         std::vector<Team*> getTeams() const;
+         Schedule getSchedule() const;
+         //-----Functions-----
+         void print();
      };
  }
 #endif //B_BALL_LEAUGE_HPP

@@ -1,20 +1,25 @@
 //
 // Created by lucas on 02/06/2022.
 //
+#pragma once
 
 #ifndef B_BALL_ROUND_HPP
 #define B_BALL_ROUND_HPP
-#include "League.hpp"
+#include "Game.hpp"
+#include <vector>
+#include <string.h>
 namespace ball{
     class Round{
-        vector<Game*> games;
+        std::vector<Game*> games;
     public:
         //-----Constructor-----
         Round();
-        Round(vector<Game*>);
+        Round(std::vector<Game*>);
+        //-----Getters-----
+        std::vector<Game*> getGames() const;
         //-----Functions-----
         void addGame(Game*);
-        vector<Game*> getGames;
+        void printRound();
 
     };
 }

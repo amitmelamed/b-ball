@@ -8,7 +8,7 @@
 #include <random>
 #include "Game.hpp"
 
-
+using namespace std;
 int random(int min, int max) //range : [min, max]
 {
     static bool first = true;
@@ -19,26 +19,26 @@ int random(int min, int max) //range : [min, max]
     }
     return min + rand() % (( max + 1 ) - min);
 }
+const int home_team_lowest_rnd_scr=55;
+const int out_team_lowest_rnd_scr=50;
+const int highest_rnd=100;
+const int ten=10;
+
 namespace ball{
     /**
      * Constructor for the Game.
      * get 2 Team pointers and generate random score.
-     *
+     *Then add point to each Team base on their talent to
      * @param A
      * @param B
      */
     Game::Game(Team* A, Team* B) {
         this->A=A;
         this->B=B;
-
-        scoreA= random(55,100);
-        scoreB= random(50,100);
-        scoreA=scoreA+(int)A->getTalent()*10;
-        scoreB=scoreB+(int)B->getTalent()*10;
-
-
-
-
+        scoreA= random(home_team_lowest_rnd_scr,highest_rnd);
+        scoreB= random(out_team_lowest_rnd_scr,highest_rnd);
+        scoreA=scoreA+(int)A->getTalent()*ten;
+        scoreB=scoreB+(int)B->getTalent()*ten;
     }
 
     /**
@@ -61,11 +61,16 @@ namespace ball{
         return scoreB;
     }
 
+    /**
+     * Returning the winner of the game.
+     * The winner is the team with the most points.
+     * In case of draw-The guest Team will win (Team B).
+     * @return
+     */
     Team *Game::getWinner() const {
         if(scoreA>scoreB){
             return A;
         }
         return B;
     }
-
 }

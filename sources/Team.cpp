@@ -5,6 +5,8 @@
 * This file contains the implementation for the Team class.
 */
 #include "Team.hpp"
+using namespace std;
+
 namespace ball{
     /**
      * Constructor
@@ -15,7 +17,7 @@ namespace ball{
         if(talent<0||talent>1){
             throw std::invalid_argument("Tallent must be from Double from 0 to 1");
         }
-        this->name=name;
+        this->name=std::move(name);
         this->talent=talent;
     }
 
@@ -23,11 +25,11 @@ namespace ball{
      * Getters
      * @return
      */
-    double Team::getTalent() {
+    double Team::getTalent() const {
         return talent;
     }
 
-    string Team::getName() {
+    string Team::getName() const{
         return name;
     }
 }

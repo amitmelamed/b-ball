@@ -5,9 +5,14 @@
 #include "League.hpp"
 
 using namespace ball;
+using namespace std;
+
 int main() {
     Team hapoel("hapoel",0.8);
     Team macabi("macabi",0.99);
-    Game game(&hapoel,&macabi);
-    cout<<"team A"<<game.getTeamA()->getName()<<" score: "<<game.getTeamAScore()<<"\nTeam b: "<<game.getTeamB()->getName()<< " score: "<<game.getTeamBScore();
+    vector<Team*> vec;
+    League league(vec);
+    Schedule schedule(league.getTeams());
+    schedule.print();
+
 }

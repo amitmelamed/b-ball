@@ -8,7 +8,6 @@
 #include <iostream>
 #include <string.h>
 
-using namespace std;
 namespace ball{
     /**
      * The team class represent a basketball team in our game.
@@ -16,14 +15,14 @@ namespace ball{
      * each team have talent rate represent how good are they between 0 to 1.
      */
     class Team{
-        string name;
+        std::string name;
         double talent;
     public:
         //-----Constructors-----
-        Team(string name,double talent);
+        Team(std::string name,double talent);
         //-----Getters-----
-        string getName();
-        double getTalent();
+       std::string getName() const ;
+       double getTalent() const;
     };
 }
 #endif //B_BALL_TEAM_HPP
